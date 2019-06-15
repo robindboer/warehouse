@@ -86,6 +86,8 @@ class User(SitemapMixin, db.Model):
         "Email", backref="user", cascade="all, delete-orphan", lazy=False
     )
 
+    personal_website_url = Column(String(length=254))
+
     @property
     def primary_email(self):
         primaries = [x for x in self.emails if x.primary]
