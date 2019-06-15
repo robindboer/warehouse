@@ -31,6 +31,9 @@
             {% if user.date_joined %}
             <p><i class="fa fa-calendar-alt" aria-hidden="true"></i>&nbsp;&nbsp;Joined on {{ user.date_joined|format_date() }}</p>
             {% endif %}
+            {% if user.personal_website_url %}
+            <p><i class="fa fa-window-maximize" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{ user.personal_website_url }}">{{ user.personal_website_url }}</a></p>
+            {% endif %}
           </div>
           {% csi request.route_path("includes.profile-actions", username=user.username) %}
           {% endcsi %}

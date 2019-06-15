@@ -59,9 +59,14 @@ class ChangeRoleForm(RoleNameMixin, forms.Form):
 
 class SaveAccountForm(forms.Form):
 
-    __params__ = ["name"]
+    __params__ = ["name", "personal_website_url"]
 
     name = wtforms.StringField()
+    personal_website_url = wtforms.StringField(
+        validators=[
+            wtforms.validators.URL(message="Link must be a valid URL.")
+        ]
+    )
 
 
 class AddEmailForm(NewEmailMixin, forms.Form):

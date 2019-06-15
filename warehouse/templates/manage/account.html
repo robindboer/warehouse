@@ -184,6 +184,12 @@
         {{ field_errors(save_account_form.name) }}
         <p class="form-group__help-text">Displayed on your <a href="{{ request.route_path('accounts.profile', username=user.username) }}">public profile</a></p>
       </div>
+      <div class="form-group">
+        <label class="form-group__label" for="name">Personal website</label>
+        {{ save_account_form.personal_website_url(placeholder="No link set", class_="form-group__input") }}
+        {{ field_errors(save_account_form.personal_website_url) }}
+        <p class="form-group__help-text">Displayed on your <a href="{{ request.route_path('accounts.profile', username=user.username) }}">public profile</a></p>
+      </div>
       <input value="Update account" class="button button--primary" type="submit">
     </form>
   </section>
